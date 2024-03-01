@@ -68,6 +68,8 @@
     BROWSER = "firefox";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   programs.git = {
     enable = true;
     userName = "Brad Rispone";
@@ -145,6 +147,10 @@
         disabled = true;
       };
     };
+  };
+  
+  programs.vscode = {
+    enable = true;
   };
 
   # Let Home Manager install and manage itself.
