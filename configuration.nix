@@ -43,20 +43,22 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # VirtualBox Guest Additions
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # XDG Portal
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  hardware.opengl.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-
-  services.xserver.windowManager.awesome = {
-    enable = true;
-    luaModules = with pkgs.luaPackages; [
-      luarocks # package manager for Lua modules
-      luadbi-mysql # database abstraction layer
-    ];
-  };
 
   # Configure keymap in X11
   services.xserver = {
