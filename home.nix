@@ -23,6 +23,8 @@
     git
     cava
     vlc
+    kitty
+    swaybg
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -67,6 +69,14 @@
   home.sessionVariables = {
     EDITOR = "vim";
     BROWSER = "firefox";
+  };
+
+  # Cursors
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.google-cursor;
+    name = "Google-Dot";
+    size = 24;
   };
 
   nixpkgs.config.allowUnfree = true;

@@ -50,6 +50,16 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Hyprland
+  programs.hyprland.enable = true;
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+    "MOZ_ENABLE_WAYLAND" = "1";
+    "MOZ_WBRENDER" = "1";
+  };
+
   # XDG Portal
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -119,8 +129,10 @@
     vim
     wget
     firefox
+    google-chrome
     kate
-    rofi
+    wofi
+    waybar
   ];
 
   environment.variables.VK_ICD_FILENAMES = [ "/run/opengl-driver/share/vulkan/icd.d/intel_icd.x86_64.json" ];
